@@ -1,0 +1,40 @@
+<div class="container" style="width:100%">
+  <h1>Add well</h1>
+  <form #wellForm="ngForm" (ngSubmit)="onAddClick(wellForm)">
+    <div *ngIf="!wellSelectedData">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text"  class="form-control" name="name" [(ngModel)]="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Type</label>
+        <input type="text"  class="form-control" name="type" [(ngModel)]="type" required>
+      </div>
+
+      <div class="form-group">
+        <label for="sourcekey">Source Key</label>
+        <input type="number"  class="form-control" name="sourceKey" [(ngModel)]="sourceKey" required>
+      </div>
+    </div>
+
+    <div *ngIf="wellSelectedData">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="wellSelectedData.name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" name="type" [(ngModel)]="wellSelectedData.type" required>
+      </div>
+
+      <div class="form-group">
+        <label for="sourcekey">Source Key</label>
+        <input type="number" class="form-control" name="sourceKey" [(ngModel)]="wellSelectedData.sourceKey" disabled required>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!wellForm.form.valid">Add well</button>
+
+  </form>
+</div>

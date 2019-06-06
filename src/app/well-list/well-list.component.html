@@ -1,0 +1,19 @@
+<app-well (dataEvent)="receiveData($event)" [wellSelectedData]="wellSelected"></app-well>
+<div class="container" style="width:100%;">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Source Key</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor="let data of wellList" (click)="openWell(data)">
+          <td>{{data.name}}</td>
+        <td [ngStyle]="{'background-color':typesObject[data.type],color:'white'}">{{data.type}}</td>
+          <td>{{data.sourceKey}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
